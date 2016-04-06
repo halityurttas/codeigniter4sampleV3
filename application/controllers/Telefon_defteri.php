@@ -4,9 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Telefon_defteri extends CI_Controller {
     
     public function index() {
+        $this->load->helper('url');
         $this->load->model('telefon_defteri_model');
         $data = $this->telefon_defteri_model->getAll();
-        var_dump($data);
+        $this->load->view("header.php");
+        $this->load->view("telefon_defteri/index", array('model' => $data));
+        $this->load->view("footer.php");
     }
     
     public function create() {
