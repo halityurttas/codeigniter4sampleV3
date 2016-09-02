@@ -9,4 +9,12 @@ class Telefon_defteri_model extends CI_Model {
         $this->db->insert('telefon_defteri', $data);
     }
     
+    public function getDataById($id) {
+        return $this->db->get_where('telefon_defteri', ['id' => $id])->result();
+    }
+    
+    public function update($data, $where) {
+        $this->db->update('telefon_defteri', $data, $where);
+    }
+    
 }

@@ -14,7 +14,10 @@ class Telefon_defteri extends CI_Controller {
     
     public function create() {
         $this->load->helper("form");
+        $this->load->helper("url");
+        $this->load->view("header.php");
         $this->load->view("telefon_defteri/create");
+        $this->load->view("footer.php");
     }
     
     public function create_post() {
@@ -26,6 +29,18 @@ class Telefon_defteri extends CI_Controller {
         );
         $this->telefon_defteri_model->insert($data);
         redirect('telefon_defteri');
+    }
+    
+    public function edit($id) {
+        $this->load->helper("form");
+        $this->load->helper("url");
+        $this->load->model('telefon_defteri_model');
+        $data = array(
+            'kayit' => $this->telefon_defteri_model->getDataById($id)[0]
+        );
+        $this->load->view("header.php");
+        $this->load->view("telefon_defteri/edit", $data);
+        $this->load->view("footer.php");
     }
     
 }
