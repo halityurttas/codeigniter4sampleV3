@@ -17,4 +17,8 @@ class Telefon_defteri_model extends CI_Model {
         $this->db->update('telefon_defteri', $data, $where);
     }
     
+    public function delete($where) {
+        $this->db->delete('telefon_defteri', $where);
+    }
+    
 }

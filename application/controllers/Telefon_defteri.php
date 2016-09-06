@@ -43,4 +43,27 @@ class Telefon_defteri extends CI_Controller {
         $this->load->view("footer.php");
     }
     
+    public function edit_post() {
+        $this->load->helper('url');
+        $this->load->model('telefon_defteri_model');
+        $data = array(
+            'adi_soyadi' => $this->input->post('adi_soyadi'),
+            'telefon' => $this->input->post('telefon')
+        );
+        $where = array(
+            'id' => $this->input->post('id')
+        );
+        $this->telefon_defteri_model->update($data, $where);
+        redirect('telefon_defteri');
+    }
+    
+    public function delete($id) {
+        $this->load->model('telefon_defteri_model');
+        $where = array(
+            'id' => $this->input->post('id')
+        );
+        $this->telefon_defteri_model->delete($where);
+        redirect('telefon_defteri');
+    }
+    
 }

@@ -15,6 +15,7 @@
                     <td><?php echo $row->telefon; ?></td>
                     <td>
                         <a href="<?php echo base_url(); ?>index.php/telefon_defteri/edit/<?php echo $row->id; ?>" class="btn btn-info">Düzenle</a>
+                        <a href="<?php echo base_url(); ?>index.php/telefon_defteri/delete/<?php echo $row->id; ?>" class="btn btn-danger" onclick="return confirm('Kayit silinsin mi?')">Sil</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
